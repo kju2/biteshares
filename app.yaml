@@ -1,0 +1,20 @@
+application: biteshares
+version: 1
+runtime: go
+api_version: go1
+handlers:
+  - url: /css
+    static_dir: css
+
+  - url: /js
+    static_dir: js
+
+  - url: /.*
+    script: _go_app
+
+error_handlers:
+  - file: errors/default_error.html
+
+  - error_code: over_quota
+    file: errors/over_quota.html
+
